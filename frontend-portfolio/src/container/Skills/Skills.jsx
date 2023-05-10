@@ -5,7 +5,7 @@ import "./Skills.scss";
 
 import { motion } from "framer-motion";
 
-import { AppWrap } from "../../wrapper";
+import { AppWrap, MotionWrap } from "../../wrapper";
 export const Skills = () => {
   const [experiences, setExperiences] = useState([]);
   const [skills, setSkills] = useState([]);
@@ -44,6 +44,7 @@ export const Skills = () => {
             </motion.div>
           ))}
         </motion.div>
+
         <div className="app__skills-exp">
           {experiences.map((experience) => (
             <motion.div className="app__skills-exp-item" key={experience.year}>
@@ -51,7 +52,7 @@ export const Skills = () => {
                 <p className="bold-text">{experience.year}</p>
               </div>
               <motion.div className="app__skills-exp-works">
-                {experience.works.map((work) => (
+                {experience?.works?.map((work) => (
                   <>
                     <motion.div
                       whileInView={{ opacity: [0, 1] }}
@@ -83,4 +84,8 @@ export const Skills = () => {
   );
 };
 
-export default AppWrap(Skills, "skills");
+export default AppWrap(
+  MotionWrap(Skills, "app__skills"),
+  "skills",
+  "app__whitebg"
+);

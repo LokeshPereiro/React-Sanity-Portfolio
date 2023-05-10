@@ -1,20 +1,21 @@
 import "./Header.scss";
 import { images } from "../../constants";
-// import { AppWrap } from "../../wrapper";
+import { AppWrap } from "../../wrapper";
 
 import { motion } from "framer-motion";
 
-export const Header = () => {
-  const scaleVariants = {
-    whileInView: {
-      scale: [0, 1],
-      opacity: [0, 1],
-      transition: {
-        duration: 1,
-        ease: "easeInOut",
-      },
+const scaleVariants = {
+  whileInView: {
+    scale: [0, 1],
+    opacity: [0, 1],
+    transition: {
+      duration: 1,
+      ease: "easeInOut",
     },
-  };
+  },
+};
+
+export const Header = () => {
   return (
     <>
       <div className="app__header app__flex">
@@ -69,3 +70,5 @@ export const Header = () => {
     </>
   );
 };
+
+export default AppWrap(Header, "home");

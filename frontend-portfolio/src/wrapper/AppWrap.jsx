@@ -10,8 +10,10 @@ export const AppWrap = (Component, idName, classNames) => {
           <Component />
 
           <div className="copyright">
-            <p className="p-text">@2023 Lokesh Pereiro</p>
-            <p className="p-text">All rights reserved</p>
+            <p className="p-text">
+              &copy; {new Date().getFullYear()} All Rights Reserved |{" "}
+              <i>LP Draft Webs</i> made with 💖
+            </p>
           </div>
         </div>
         <NavigationDots active={idName} />

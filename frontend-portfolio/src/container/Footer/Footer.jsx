@@ -2,7 +2,7 @@ import { useState } from "react";
 
 import "./Footer.scss";
 import { images } from "../../constants";
-import { client } from "../../client";
+import { client } from "../../helpers/client";
 import { AppWrap, MotionWrap } from "../../wrapper";
 
 export const Footer = () => {

@@ -1,14 +1,7 @@
 import { Navbar } from "./components";
-
-import {
-  Header,
-  About,
-  Work,
-  Skills,
-  Testimonial,
-  Footer,
-} from "./appComponents";
 import "./App.scss";
+
+import { Header, About, Work, Skills, Testimonial, Footer } from "./helpers";
 
 function App() {
   return (

@@ -1,6 +1,7 @@
 import "./Header.scss";
 import { images } from "../../constants";
 import { AppWrap } from "../../wrapper";
+import { fadeIn } from "../../helpers";
 
 import { motion } from "framer-motion";
 
@@ -25,13 +26,19 @@ export const Header = () => {
           className="app__header-info"
         >
           <div className="app__header-badge">
-            <div className="badge-cmp app__flex">
+            <motion.div
+              variants={fadeIn("down", 0.3)}
+              initial="hidden"
+              whileInView={"show"}
+              viewport={{ once: false, amount: 0.7 }}
+              className="badge-cmp app__flex"
+            >
               <span>👋</span>
               <div style={{ marginLeft: 20 }}>
                 <p className="p-text">Hello, I am</p>
-                <h1 className="head-text">Lokesh Pereiro</h1>
+                <h1>Lokesh Pereiro</h1>
               </div>
-            </div>
+            </motion.div>
 
             <div className="tag-cmp app__flex">
               <p className="p-text">~ MERN Stack Web Developer</p>

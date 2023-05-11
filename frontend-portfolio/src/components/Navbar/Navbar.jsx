@@ -1,38 +1,46 @@
 import { useState } from "react";
-import "./Navbar.scss";
+import { navLinks } from "../../helpers";
 import { images } from "../../constants";
+import "./Navbar.scss";
 
-import { motion } from "framer-motion";
 import { HiMenuAlt4, HiX } from "react-icons/hi";
+import { motion } from "framer-motion";
 
 export const Navbar = () => {
   const [toggle, setToggle] = useState(false);
+
   return (
     <>
       <nav className="app__navbar">
+        {/* Logo */}
         <div className="app__navbar-logo">
-          <img src={images.logo} alt="logo" />
+          <a href="#home">
+            <img src={images.logo} alt="logo" />
+          </a>
         </div>
+
+        {/* Upper Nav-Links */}
         <ul className="app__navbar-links">
-          {["home", "about", "work", "skills", "contact"].map((item) => (
-            <li className="app__flex p-text" key={`link-${item}`}>
+          {navLinks.map((link) => (
+            <li className="app__flex p-text" key={`link-${link}`}>
               <div />
-              <a href={`#${item}`}>{item}</a>
+              <a href={`#${link}`}>{link}</a>
             </li>
           ))}
         </ul>
 
+        {/* Side Nav Menu*/}
         <div className="app__navbar-menu">
           <HiMenuAlt4 onClick={() => setToggle(true)} />
 
           {toggle && (
             <motion.div
-              whileInView={{ x: [300, 0] }}
+              whileInView={{ x: [200, 0] }}
               transition={{ duration: 0.85, ease: "easeOut" }}
             >
               <HiX onClick={() => setToggle(false)} />
               <ul>
-                {["home", "about", "work", "skills", "contact"].map((item) => (
+                {navLinks.map((item) => (
                   <li key={item}>
                     <a href={`#${item}`} onClick={() => setToggle(false)}>
                       {item}

@@ -12,8 +12,12 @@
   --white-color: #ffffff;
 }
 
-* {
+html {
   box-sizing: border-box;
+  font-size: 62.5%;
+}
+
+* {
   padding: 0;
   margin: 0;
   scroll-behavior: smooth;

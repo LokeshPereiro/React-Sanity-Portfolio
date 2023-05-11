@@ -1,5 +1,5 @@
 import { useState, useEffect } from "react";
-import { urlFor, client } from "../../client";
+import { urlFor, client } from "../../helpers/client";
 import "./About.scss";
 
 import { AppWrap, MotionWrap } from "../../wrapper";

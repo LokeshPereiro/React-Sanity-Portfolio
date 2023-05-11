@@ -1,6 +1,6 @@
 import { useState, useEffect } from "react";
 import { Tooltip as ReactTooltip } from "react-tooltip";
-import { urlFor, client } from "../../client";
+import { urlFor, client } from "../../helpers/client";
 import "./Skills.scss";
 
 import { motion } from "framer-motion";

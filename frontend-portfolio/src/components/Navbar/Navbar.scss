@@ -1,161 +1,188 @@
+@import "../../assets/mixins/MediaQueries.scss";
+@import "../../assets/mixins/Layouts.scss";
+
 .app__navbar {
   width: 100%;
-  display: flex;
-  justify-content: space-between;
-  align-items: center;
+  @include dynamic_flex(flex, row, space-between, center);
+
   position: fixed;
-
   padding: 1rem 2rem;
-  background: rgba(44, 43, 43, 0.35);
-  // box-shadow: 0 8px 32px 0 rgba(31, 38, 135, 0.37);
-  backdrop-filter: blur(4px);
-  -webkit-backdrop-filter: blur(4px);
-  border: 1px solid rgba(255, 255, 255, 0.18);
-  z-index: 5;
-}
+  background: rgba(0, 0, 0, 0.8);
+  box-shadow: 0 -0.3rem 0.5rem 0.3rem var(--black-color);
+  z-index: 10;
 
-.app__navbar-logo {
-  display: flex;
-  justify-content: flex-start;
-  align-items: center;
+  // LOGO Container
+  .app__navbar-logo {
+    @include dynamic_flex(flex, row, flex-start, center);
 
-  img {
-    width: 5rem;
-    height: 5rem;
+    img {
+      width: 5rem;
+      height: 5rem;
 
-    @media screen and (min-width: 567px) {
-      width: 8rem;
-      height: 8rem;
+      @include sm_min {
+        width: 8rem;
+        height: 8rem;
+      }
+      @include lg_min {
+        width: 10rem;
+        height: 10rem;
+      }
     }
   }
-}
-// Navlinks
-.app__navbar-links {
-  flex: 1;
-  display: flex;
-  justify-content: center;
-  align-items: center;
 
-  list-style: none;
+  // NavLinks Container
+  .app__navbar-links {
+    flex: 1;
+    list-style: none;
+    @include d_flex(flex, center, center);
 
-  li {
-    margin: 0 1rem;
-    cursor: pointer;
+    li {
+      margin: 0 1rem;
+      cursor: pointer;
 
-    flex-direction: column;
+      a {
+        color: var(--white-color);
+        text-decoration: none;
+        font-size: 1.6rem;
+        text-transform: uppercase;
+        font-weight: 500;
+        letter-spacing: 0.2rem;
+        transition: all 0.4s ease-in-out;
 
-    div {
-      width: 5px;
-      height: 5px;
-      background: transparent;
-      border-radius: 50%;
-      margin-bottom: 5px;
-    }
+        &:hover {
+          border-bottom: 0.1rem solid var(--gray-color);
+        }
 
-    a {
-      color: #4b4848;
-      text-decoration: none;
-      flex-direction: column;
-      font-size: 1.6rem;
-      text-transform: uppercase;
-      font-weight: 900;
-
-      transition: all 0.3s ease-in-out;
+        @include md_min {
+          font-size: 2.2rem;
+        }
+        @include lg_min {
+          font-size: 2.6rem;
+        }
+        @include xl_min {
+          font-size: 3rem;
+        }
+      }
 
       &:hover {
-        color: var(--secondary-color);
+        div {
+          background: var(--secondary-color);
+        }
       }
     }
 
-    &:hover {
-      div {
-        background: var(--secondary-color);
-      }
+    @include sm_max {
+      display: none;
     }
   }
 
-  @media (max-width: 576px) {
-    display: none;
-  }
-}
+  // Toogle NAV-MENU
+  .app__navbar-menu {
+    width: 3.5rem;
+    height: 3.5rem;
+    @include d_flex(flex, center, center);
 
-// Toggle navbar
-.app__navbar-menu {
-  width: 3.5rem;
-  height: 3.5rem;
-  border-radius: 50%;
-  position: relative;
-  cursor: pointer;
+    border-radius: 50%;
+    position: relative;
+    cursor: pointer;
+    margin-right: 3.5rem;
 
-  display: flex;
-  justify-content: center;
-  align-items: center;
-  background-color: var(--secondary-color);
+    background-color: var(--secondary-color);
 
-  svg {
-    width: 70%;
-    height: 70%;
-    color: var(--white-color);
-  }
+    @include sm_min {
+      width: 4.5rem;
+      height: 4.5rem;
+    }
 
-  div {
-    position: fixed;
-    top: 0;
-    bottom: 0;
-    right: 0;
-    z-index: 5;
+    @include lg_min {
+      width: 5.5rem;
+      height: 5.5rem;
+    }
 
-    padding: 1rem;
-
-    width: 80%;
-    height: 100vh;
-
-    display: flex;
-    justify-content: flex-end;
-    align-items: flex-end;
-    flex-direction: column;
-
-    background: url("../../assets/bgWhite.png");
-    background-color: var(--white-color);
-    background-size: cover;
-    background-repeat: repeat;
-
-    /* top box shadow */
-    box-shadow: 0px 0px 20px rgba(168, 168, 168, 0.15);
+    @include xl_min {
+      width: 6.5rem;
+      height: 6.5rem;
+    }
 
     svg {
-      width: 35px;
-      height: 35px;
-      color: var(--secondary-color);
-      margin: 0.5rem 1rem;
+      width: 70%;
+      height: 70%;
+      color: var(--white-color);
     }
 
-    ul {
-      list-style: none;
-      margin: 0;
-      padding: 0;
-      height: 100%;
-      width: 100%;
+    div {
+      position: fixed;
+      top: 0;
+      bottom: 0;
+      right: 0;
+      z-index: 5;
 
-      display: flex;
-      justify-content: flex-start;
-      align-items: flex-start;
-      flex-direction: column;
+      padding: 2.5rem;
 
-      li {
-        margin: 1rem;
+      width: 60%;
+      height: 100vh;
 
-        a {
-          color: var(--gray-color);
-          text-decoration: none;
-          font-size: 1rem;
-          text-transform: uppercase;
-          font-weight: 500;
+      @include sm_min {
+        width: 40%;
+      }
 
-          transition: all 0.3s ease-in-out;
+      @include dynamic_flex(flex, column, center, flex-end);
 
-          &:hover {
-            color: var(--secondary-color);
+      background: url("../../assets/bgWhite.png");
+      background-color: var(--white-color);
+      background-size: cover;
+      background-repeat: repeat;
+
+      svg {
+        width: 35px;
+        height: 35px;
+        color: var(--secondary-color);
+        margin: 2rem 2rem;
+        border-radius: 50%;
+        transition: all 0.4s ease-in-out;
+        border: 0.01rem solid var(--secondary-color);
+
+        &:hover {
+          background-color: var(--secondary-color);
+          color: var(--white-color);
+        }
+      }
+
+      ul {
+        list-style: none;
+        height: 100%;
+        width: 100%;
+
+        @include dynamic_flex(flex, column, flex-start, flex-start);
+
+        li {
+          margin: 1rem;
+
+          a {
+            color: var(--black-color);
+            text-decoration: none;
+            font-size: 1.6rem;
+            text-transform: uppercase;
+            font-weight: 500;
+            letter-spacing: 0.2rem;
+
+            transition: all 0.4s ease-in-out;
+
+            &:hover {
+              border-bottom: 0.1rem solid var(--gray-color);
+            }
+
+            @include sm_min {
+              font-size: 2.2rem;
+            }
+
+            @include md_min {
+              font-size: 2.6rem;
+            }
+
+            @include lg_min {
+              font-size: 3rem;
+            }
           }
         }
       }

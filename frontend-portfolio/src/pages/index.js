@@ -1,4 +1,4 @@
-export * from "./Header/Header";
+export * from "./LandingPage/LandingPage";
 export * from "./About/About";
 export * from "./Footer/Footer";
 export * from "./Skills/Skills";

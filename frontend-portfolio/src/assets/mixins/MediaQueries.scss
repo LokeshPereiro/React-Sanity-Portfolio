@@ -1,0 +1,54 @@
+// Default values are provided. However we can set any values we want...
+// SAMLL DEVICE
+
+// Min A partir de ..
+@mixin sm_min($size: 576px) {
+  @media screen and (min-width: $size) {
+    @content;
+  }
+}
+// Hasta ..
+
+@mixin sm_max($size: 576px) {
+  @media screen and (max-width: $size) {
+    @content;
+  }
+}
+// MEDIUM DEVICE
+@mixin md_min($size: 768px) {
+  @media screen and (min-width: $size) {
+    @content;
+  }
+}
+
+@mixin md_max($size: 768px) {
+  @media screen and (max-width: $size) {
+    @content;
+  }
+}
+
+// LARGE DEVICE
+@mixin lg_min($size: 912px) {
+  @media screen and (min-width: $size) {
+    @content;
+  }
+}
+
+@mixin lg_max($size: 912px) {
+  @media screen and (max-width: $size) {
+    @content;
+  }
+}
+
+// EXTRA LARGE DEVICE
+@mixin xl_min($size: 1400px) {
+  @media screen and (min-width: $size) {
+    @content;
+  }
+}
+
+@mixin xl_max($size: 1400px) {
+  @media screen and (max-width: $size) {
+    @content;
+  }
+}

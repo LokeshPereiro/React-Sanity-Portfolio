@@ -1,0 +1,24 @@
+@mixin d_flex($display, $justify, $align) {
+  display: $display;
+  justify-content: $justify;
+  align-items: $align;
+}
+@mixin dynamic_flex($display, $direction, $justify, $align) {
+  display: $display;
+  flex-direction: $direction;
+  justify-content: $justify;
+  align-items: $align;
+}
+
+@mixin bgImages($bgsize, $repeat) {
+  background-size: $bgsize;
+  background-repeat: $repeat;
+  @content;
+}
+
+@mixin imgResponsive($width, $height, $cover) {
+  max-width: $width;
+  height: $height;
+  object-fit: $cover;
+  @content;
+}

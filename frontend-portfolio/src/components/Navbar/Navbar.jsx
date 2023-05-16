@@ -3,15 +3,20 @@ import { navLinks } from "../../helpers";
 import { images } from "../../constants";
 import "./Navbar.scss";
 
-import { HiMenuAlt4, HiX } from "react-icons/hi";
+// Third party assets
 import { motion } from "framer-motion";
+import { HiMenuAlt4, HiX } from "react-icons/hi";
 
 export const Navbar = () => {
   const [toggle, setToggle] = useState(false);
 
+  const handleToggleMenu = () => {
+    setToggle(true);
+  };
+
   return (
     <>
-      <nav className="app__navbar">
+      <header className="app__navbar">
         {/* Logo */}
         <div className="app__navbar-logo">
           <a href="#home">
@@ -20,18 +25,20 @@ export const Navbar = () => {
         </div>
 
         {/* Upper Nav-Links */}
-        <ul className="app__navbar-links">
-          {navLinks.map((link) => (
-            <li className="app__flex p-text" key={`link-${link}`}>
-              <div />
-              <a href={`#${link}`}>{link}</a>
-            </li>
-          ))}
-        </ul>
+        {!toggle && (
+          <ul className="app__navbar-links">
+            {navLinks.map((link) => (
+              <li className="app__flex p-text" key={`link-${link}`}>
+                {/* <div /> */}
+                <a href={`#${link}`}>{link}</a>
+              </li>
+            ))}
+          </ul>
+        )}
 
         {/* Side Nav Menu*/}
-        <div className="app__navbar-menu">
-          <HiMenuAlt4 onClick={() => setToggle(true)} />
+        <nav className="app__navbar-menu">
+          <HiMenuAlt4 onClick={handleToggleMenu} />
 
           {toggle && (
             <motion.div
@@ -42,7 +49,7 @@ export const Navbar = () => {
               <ul>
                 {navLinks.map((item) => (
                   <li key={item}>
-                    <a href={`#${item}`} onClick={() => setToggle(false)}>
+                    <a href={`#${item}`} onClick={handleToggleMenu}>
                       {item}
                     </a>
                   </li>
@@ -50,8 +57,8 @@ export const Navbar = () => {
               </ul>
             </motion.div>
           )}
-        </div>
-      </nav>
+        </nav>
+      </header>
     </>
   );
 };

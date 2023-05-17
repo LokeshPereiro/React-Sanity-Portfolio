@@ -4,7 +4,6 @@ import { AppWrap } from "../../wrapper";
 import { fadeIn } from "../../helpers";
 
 import { motion } from "framer-motion";
-import { TypeAnimation } from "react-type-animation";
 
 const scaleVariants = {
   whileInView: {
@@ -24,39 +23,25 @@ export const LandingPage = () => {
         <div className="app__home-info">
           <div className="app__home-badge">
             <motion.div
-              variants={fadeIn("up", 0.3)}
+              variants={fadeIn("down", 0.3)}
               initial="hidden"
               whileInView={"show"}
               className="badge-cmp"
             >
               <h4>
-                <span>👋</span> Hey there, It's me
+                <span>👋</span> Hello, I am
               </h4>
-              <h1 data-text="&nbsp;#LokeshPereiro">
-                &nbsp;#LokeshPereiro&nbsp;
-              </h1>
+              <h1>Lokesh Pereiro MF</h1>
             </motion.div>
 
             <motion.div
-              variants={fadeIn("up", 0.5)}
+              variants={fadeIn("down", 0.6)}
               initial="hidden"
               whileInView={"show"}
-              viewport={{ once: false, amount: 0.7 }}
-              className="tag-cmp"
+              className="tag-cmp app__flex"
             >
-              <p>I'm a . . . </p>
-              <TypeAnimation
-                sequence={[
-                  "🖥️ Full MERN Stack Developer",
-                  4000,
-                  "🖌️ Frontend Passionate",
-                  4000,
-                  "📚 Self-taught Developer",
-                ]}
-                speed={200}
-                wrapper="span"
-                repeat={Infinity}
-              />
+              <p className="p-text">MERN Stack Web Developer</p>
+              <p className="p-text">Frontend passionate</p>
             </motion.div>
           </div>
         </div>

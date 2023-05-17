@@ -117,7 +117,7 @@
       right: 0;
       z-index: 5;
 
-      padding: 2.5rem 0.5rem 1rem 2.5rem;
+      padding: 2.5rem;
 
       width: 60%;
       height: 100vh;
@@ -128,7 +128,7 @@
 
       @include dynamic_flex(flex, column, center, flex-end);
 
-      background: url("../../assets/imgs/bgWhite.png");
+      background: url("../../assets/bgWhite.png");
       background-color: var(--white-color);
       background-size: cover;
       background-repeat: repeat;
@@ -137,7 +137,7 @@
         width: 35px;
         height: 35px;
         color: var(--secondary-color);
-        margin: 1.5rem 1rem;
+        margin: 2rem 2rem;
         border-radius: 50%;
         transition: all 0.4s ease-in-out;
         border: 0.01rem solid var(--secondary-color);

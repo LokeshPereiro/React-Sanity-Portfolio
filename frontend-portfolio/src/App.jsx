@@ -1,23 +1,16 @@
 import { Navbar } from "./components";
 import "./App.scss";
-// import { HoverText } from "./design/HoverText/HoverText";
 
-import {
-  LandingPage,
-  About,
-  Work,
-  Skills,
-  Testimonial,
-  Footer,
-} from "./helpers";
+import { Header, About, Work, Skills, Testimonial, Footer } from "./helpers";
+// import { WaveNav } from "./components/waveNav/waveNav";
 
 function App() {
   return (
     <>
       <section className="app">
-        {/* <HoverText /> */}
+        {/* <WaveNav /> */}
         <Navbar />
-        <LandingPage />
+        <Header />
         <About />
         <Work />
         <Skills />

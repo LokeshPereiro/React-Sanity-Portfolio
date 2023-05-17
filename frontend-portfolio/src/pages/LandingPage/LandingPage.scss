@@ -16,7 +16,6 @@
 .app__home {
   @include dynamic_flex(flex, column, center, center);
 
-  flex: 1;
   width: 100%;
   height: 100%;
 
@@ -31,13 +30,73 @@
   }
 
   .app__home-info {
-    // flex: 1;
     @include d_flex(flex, center, center);
     height: 100%;
 
     .app__home-badge {
-      // width: 100%;
       @include dynamic_flex(flex, column, flex-start, flex-start);
+
+      .badge-cmp {
+        h1 {
+          padding: 0.5rem;
+          color: var(--secondary-color);
+          font-size: 2.5rem;
+          color: transparent;
+          -webkit-text-stroke: 0.1rem var(--secondary-color);
+          opacity: 0.9;
+          position: relative;
+          cursor: pointer;
+
+          &::before {
+            content: attr(data-text);
+            position: absolute;
+            color: var(--secondary-color);
+            width: 0;
+            overflow: hidden;
+            transition: 1s;
+            border-right: 3px solid var(--secondary-color);
+            -webkit-text-stroke: 1px solid var(--secondary-color);
+          }
+          &:hover::before {
+            width: 100%;
+            filter: drop-shadow(0 0 20px var(--secondary-color));
+          }
+        }
+
+        h4 {
+          font-size: 2rem;
+        }
+
+        span {
+          font-size: 2.5rem;
+        }
+      }
+
+      .badge-cmp,
+      .tag-cmp {
+        background: var(--white-color);
+        padding: 2rem 3rem;
+        border-radius: 1.5rem;
+        box-shadow: 0 0 2rem rgba(0, 0, 0, 0.1);
+      }
+
+      .tag-cmp {
+        margin-top: 3rem;
+        width: 30rem;
+
+        p {
+          font-size: 2rem;
+          color: var(--black-color);
+          font-weight: 600;
+          margin-bottom: 0.7rem;
+        }
+        span {
+          font-size: 2rem;
+          color: var(--secondary-color);
+          font-weight: 600;
+          line-height: 2.5rem;
+        }
+      }
 
       @include sm_min {
         .badge-cmp {
@@ -48,20 +107,18 @@
         }
       }
 
-      .badge-cmp,
-      .tag-cmp {
-        background: var(--white-color);
-        padding: 1rem 2rem;
-        border-radius: 1.5rem;
-        box-shadow: 0 0 2rem rgba(0, 0, 0, 0.1);
-      }
+      @include sm_max(360px) {
+        .badge-cmp {
+          h1 {
+            font-size: 1.5rem;
+          }
 
-      .tag-cmp {
-        margin-top: 2rem;
-
-        p {
-          text-transform: uppercase;
-          text-align: left;
+          h4 {
+            font-size: 1rem;
+          }
+          span {
+            font-size: 1rem;
+          }
         }
       }
     }

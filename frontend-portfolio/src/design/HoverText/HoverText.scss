@@ -1,0 +1,50 @@
+// Blue: #00ade1
+// Pink: #ff6493
+// Yellow: #ffdd1c
+// Green: #00dc82
+// Purple: #dc00d4
+
+.hoverText-Box {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  min-height: 100vh;
+  background-color: #252839;
+
+  ul {
+    position: relative;
+    display: flex;
+    flex-direction: column;
+    gap: 30px;
+    li {
+      position: relative;
+      list-style: none;
+      a {
+        font-size: 4rem;
+        color: aliceblue;
+        text-decoration: none;
+        line-height: 1em;
+        letter-spacing: 2px;
+        text-transform: uppercase;
+        color: transparent;
+        -webkit-text-stroke: 1px rgba(255, 255, 255, 0.5);
+      }
+    }
+  }
+}
+
+ul li a::before {
+  content: attr(data-text);
+  position: absolute;
+  color: #00ade1;
+  width: 0;
+  overflow: hidden;
+  transition: 1s;
+  border-right: 8px solid #00ade1;
+  -webkit-text-stroke: 1px #00ade1;
+}
+ul li a:hover::before {
+  width: 100%;
+  //   -webkit-text-stroke: 1px #00ade1;
+  filter: drop-shadow(0 0 25px #00ade1);
+}

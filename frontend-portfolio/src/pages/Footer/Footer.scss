@@ -89,7 +89,6 @@
       border-radius: 7px;
       background-color: var(--primary-color);
 
-      font-family: var(--font-base);
       color: var(--secondary-color);
       outline: none;
     }
@@ -113,7 +112,6 @@
     color: var(--white-color);
     outline: none;
     margin: 2rem 0 0 0;
-    font-family: var(--font-base);
 
     transition: cubic-bezier(0.55, 0.085, 0.68, 0.53);
     cursor: pointer;

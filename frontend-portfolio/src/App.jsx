@@ -1,6 +1,5 @@
 import { Navbar } from "./components";
 import "./App.scss";
-// import { HoverText } from "./design/HoverText/HoverText";
 
 import {
   LandingPage,
@@ -15,7 +14,6 @@ function App() {
   return (
     <>
       <section className="app">
-        {/* <HoverText /> */}
         <Navbar />
         <LandingPage />
         <About />
